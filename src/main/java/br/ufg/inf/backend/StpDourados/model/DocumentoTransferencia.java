@@ -10,6 +10,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+@lombok.Getter
+@lombok.Setter
 @Entity
 public class DocumentoTransferencia {
     @Id
@@ -30,35 +32,4 @@ public class DocumentoTransferencia {
         this.procedimentosRecebimento = procedimentosRecebimento;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<MedicamentoPrescrito> getDrogasAdministradas() {
-        return drogasAdministradas;
-    }
-
-    public void setDrogasAdministradas(List<MedicamentoPrescrito> drogasAdministradas) {
-        this.drogasAdministradas = drogasAdministradas;
-    }
-
-    public List<String> getProcedimentosAcondicionamento() {
-        return procedimentosAcondicionamento;
-    }
-
-    public void setProcedimentosAcondicionamento(List<String> procedimentosAcondicionamento) {
-        this.procedimentosAcondicionamento = procedimentosAcondicionamento;
-    }
-
-    public List<String> getProcedimentosRecebimento() {
-        return procedimentosRecebimento;
-    }
-
-    public void setProcedimentosRecebimento(List<String> procedimentosRecebimento) {
-        this.procedimentosRecebimento = procedimentosRecebimento;
-    }
 }

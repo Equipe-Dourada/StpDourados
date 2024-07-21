@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
+@lombok.Getter
+@lombok.Setter
 @Entity
 public class Medico {
     @Id
@@ -31,59 +33,4 @@ public class Medico {
         this.especialidade = especialidade;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCrm() {
-        return crm;
-    }
-
-    public void setCrm(String crm) {
-        this.crm = crm;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public UnidadeHospitalar getUnidadeHospitalar() {
-        return unidadeHospitalar;
-    }
-
-    public void setUnidadeHospitalar(UnidadeHospitalar unidadeHospitalar) {
-        this.unidadeHospitalar = unidadeHospitalar;
-    }
-
-    public String getPapel() {
-        return papel;
-    }
-
-    public void setPapel(String papel) {
-        this.papel = papel;
-    }
-
-    public Especialidade getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(Especialidade especialidade) {
-        this.especialidade = especialidade;
-    }
 }

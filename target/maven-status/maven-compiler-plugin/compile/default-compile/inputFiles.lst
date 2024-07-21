@@ -1,6 +1,16 @@
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/ServletInitializer.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/StpDouradosApplication.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/DocumentoTransferenciaController.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/EnderecoController.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/EspecialidadeController.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/MedicamentoController.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/MedicamentoPrescritoController.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/MedicoController.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/PacienteController.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/SolicitacaoController.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/TransferenciaController.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/controller/UnidadeHospitalarController.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/excecao/ResourceNotFoundException.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/model/DocumentoTransferencia.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/model/Endereco.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/model/Especialidade.java
@@ -27,6 +37,7 @@
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/service/MedicamentoPrescritoService.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/service/MedicamentoService.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/service/MedicoService.java
+/home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/service/PacienteService.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/service/SolicitacaoService.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/service/TransferenciaService.java
 /home/devs/Documents/Projetos_pos/StpDourados/src/main/java/br/ufg/inf/backend/StpDourados/service/UnidadeHospitalarService.java

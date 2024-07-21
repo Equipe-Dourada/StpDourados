@@ -1,8 +1,11 @@
 package br.ufg.inf.backend.StpDourados.model;
 
+
+import jakarta.persistence.Entity;
+
 @lombok.Getter
 @lombok.Setter
-@jakarta.persistence.Entity
+@Entity
 public class Paciente {
     @jakarta.persistence.Id
     @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
