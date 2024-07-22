@@ -1,43 +1,57 @@
 package br.ufg.inf.backend.StpDourados.controller;
 
+import br.ufg.inf.backend.StpDourados.model.Endereco;
 import br.ufg.inf.backend.StpDourados.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/documentoTransferencia")
+@RequestMapping("/enderecos")
 public class EnderecoController {
 
 	@Autowired
-	private EnderecoService service;
-
-	/*
+	private EnderecoService enderecoService;
 
 	@GetMapping
-	public List<Endereco> listar() {
-		return service.listar();
+	public ResponseEntity<List<Endereco>> findAll() {
+		List<Endereco> enderecos = enderecoService.findAll();
+		return ResponseEntity.ok(enderecos);
 	}
 
 	@GetMapping("/{id}")
-	public Endereco obter(@PathParam(value = "id") Long documentoTransferenciaId) {
-		return service.obter(documentoTransferenciaId);
-	}
-
-	@DeleteMapping("/{id}")
-	public void remover(@PathParam(value = "id") Long documentoTransferenciaId) {
-		service.remover(documentoTransferenciaId);
+	public ResponseEntity<Endereco> findById(@PathVariable Long id) {
+		Optional<Endereco> endereco = enderecoService.findById(id);
+		return endereco.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
 	@PostMapping
-	public Endereco adicionar(@RequestBody Endereco documentoTransferencia) {
-		return service.salvar(documentoTransferencia);
+	public ResponseEntity<Endereco> create(@RequestBody Endereco endereco) {
+		Endereco savedEndereco = enderecoService.save(endereco);
+		return ResponseEntity.status(HttpStatus.CREATED).body(savedEndereco);
 	}
 
 	@PutMapping("/{id}")
-	public Endereco atualizar(@PathParam(value = "id") Long documentoTransferenciaId, @RequestBody Endereco documentoTransferencia) {
-		return service.salvar(documentoTransferenciaId, documentoTransferencia);
+	public ResponseEntity<Endereco> update(@PathVariable Long id, @RequestBody Endereco endereco) {
+		if (!enderecoService.findById(id).isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		endereco.setId(id);
+		Endereco updatedEndereco = enderecoService.save(endereco);
+		return ResponseEntity.ok(updatedEndereco);
 	}
-	 */
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+		if (!enderecoService.findById(id).isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		enderecoService.deleteById(id);
+		return ResponseEntity.noContent().build();
+	}
 }
