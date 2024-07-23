@@ -2,34 +2,38 @@ package br.ufg.inf.backend.StpDourados.controller;
 
 import br.ufg.inf.backend.StpDourados.model.Paciente;
 import br.ufg.inf.backend.StpDourados.service.PacienteService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+@AllArgsConstructor
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
 
-	@Autowired
-	private PacienteService service;
+    private final PacienteService service;
 
-	@GetMapping
-	public List<Paciente> listar() {
-		return service.listar();
-	}
+    @GetMapping
+    public java.util.List<Paciente> listar() {
+        return service.listar();
+    }
 
-	@GetMapping("/{id}")
-	public Paciente obter(@PathVariable(value = "id") Long pacienteId) { return service.obter(pacienteId);	}
+    @GetMapping("/{cpf}")
+    public Paciente obter(@PathVariable String cpf) {
+        return service.obter(cpf);
+    }
 
-	@PostMapping
-	public Paciente adicionar(@RequestBody Paciente paciente) { return service.salvar(paciente); }
+    @PostMapping
+    public Paciente adicionar(@RequestBody Paciente paciente) {
+        return service.salvar(paciente);
+    }
 
-	@PutMapping("/{id}")
-	public Paciente atualizar(@PathVariable(value = "id") Long pacienteId, @RequestBody Paciente paciente) {
-		return service.salvar(pacienteId, paciente);
-	}
+    @PutMapping("/{cpf}")
+    public Paciente atualizar(@PathVariable String cpf, @RequestBody Paciente paciente) {
+        return service.salvar(cpf, paciente);
+    }
 
-	@DeleteMapping("/{id}")
-	public void remover(@PathVariable(value = "id") Long pacienteId) { service.remover(pacienteId); }
+    @DeleteMapping("/{cpf}")
+    public void remover(@PathVariable String cpf) {
+        service.remover(cpf);
+    }
 }

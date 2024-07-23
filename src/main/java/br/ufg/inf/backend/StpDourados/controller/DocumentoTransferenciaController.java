@@ -2,56 +2,40 @@ package br.ufg.inf.backend.StpDourados.controller;
 
 import br.ufg.inf.backend.StpDourados.model.DocumentoTransferencia;
 import br.ufg.inf.backend.StpDourados.service.DocumentoTransferenciaService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-
-
+@AllArgsConstructor
 @RestController
 @RequestMapping("/documentoTransferencia")
 public class DocumentoTransferenciaController {
 
-	@Autowired
-	private DocumentoTransferenciaService service;
+    private final DocumentoTransferenciaService service;
 
-	@GetMapping
-	public ResponseEntity<List<DocumentoTransferencia>> findAll() {
-		List<DocumentoTransferencia> documentos = service.findAll();
-		return ResponseEntity.ok(documentos);
-	}
+    @GetMapping
+    public java.util.List<DocumentoTransferencia> listar() {
+        return service.listar();
+    }
 
-	@GetMapping("/{id}")
-	public ResponseEntity<DocumentoTransferencia> findById(@PathVariable Long id) {
-		Optional<DocumentoTransferencia> documento = service.findById(id);
-		return documento.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-	}
+    @GetMapping("/{id}")
+    public DocumentoTransferencia obter(@PathVariable Long id) {
+        return service.obter(id);
+    }
 
-	@PostMapping
-	public ResponseEntity<DocumentoTransferencia> create(@RequestBody DocumentoTransferencia documentoTransferencia) {
-		DocumentoTransferencia savedDocumento = service.save(documentoTransferencia);
-		return ResponseEntity.status(HttpStatus.CREATED).body(savedDocumento);
-	}
+    @PostMapping
+    public DocumentoTransferencia adicionar(@RequestBody DocumentoTransferencia documentoTransferencia) {
+        return service.salvar(documentoTransferencia);
+    }
 
-	@PutMapping("/{id}")
-	public ResponseEntity<DocumentoTransferencia> update(@PathVariable Long id, @RequestBody DocumentoTransferencia documentoTransferencia) {
-		if (!service.findById(id).isPresent()) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
-		documentoTransferencia.setId(id);
-		DocumentoTransferencia updatedDocumento = service.save(documentoTransferencia);
-		return ResponseEntity.ok(updatedDocumento);
-	}
+    @PutMapping("/{id}")
+    public DocumentoTransferencia atualizar(
+            @PathVariable Long id, @RequestBody DocumentoTransferencia documentoTransferencia) {
 
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		if (!service.findById(id).isPresent()) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
-		service.deleteById(id);
-		return ResponseEntity.noContent().build();
-	}
+        return service.salvar(id, documentoTransferencia);
+    }
+
+    @DeleteMapping("/{id}")
+    public void remover(@PathVariable Long id) {
+        service.remover(id);
+    }
 }

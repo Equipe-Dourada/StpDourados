@@ -1,33 +1,34 @@
 package br.ufg.inf.backend.StpDourados.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import br.ufg.inf.backend.StpDourados.model.Medico;
 import br.ufg.inf.backend.StpDourados.repository.MedicoRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
+@AllArgsConstructor
 @Service
 public class MedicoService {
 
-    @Autowired
-    private MedicoRepository medicoRepository;
+    private final MedicoRepository repository;
 
-    public List<Medico> findAll() {
-        return medicoRepository.findAll();
+    public java.util.List<Medico> listar() {
+        return repository.findAll();
     }
 
-    public Optional<Medico> findById(Long id) {
-        return medicoRepository.findById(id);
+    public Medico obter(String crm) {
+        return repository.findById(crm).orElse(null);
     }
 
-    public Medico save(Medico medico) {
-        return medicoRepository.save(medico);
+    public Medico salvar(Medico paciente) {
+        return repository.save(paciente);
     }
 
-    public void deleteById(Long id) {
-        medicoRepository.deleteById(id);
+    public Medico salvar(String crm, Medico paciente) {
+        paciente.setCrm(crm);
+        return repository.save(paciente);
+    }
+
+    public void remover(String crm) {
+        repository.deleteById(crm);
     }
 }

@@ -1,33 +1,34 @@
 package br.ufg.inf.backend.StpDourados.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import br.ufg.inf.backend.StpDourados.model.Solicitacao;
 import br.ufg.inf.backend.StpDourados.repository.SolicitacaoRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
+@AllArgsConstructor
 @Service
 public class SolicitacaoService {
 
-    @Autowired
-    private SolicitacaoRepository solicitacaoRepository;
+    private final SolicitacaoRepository repository;
 
-    public List<Solicitacao> findAll() {
-        return solicitacaoRepository.findAll();
+    public java.util.List<Solicitacao> listar() {
+        return repository.findAll();
     }
 
-    public Optional<Solicitacao> findById(Long id) {
-        return solicitacaoRepository.findById(id);
+    public Solicitacao obter(Long id) {
+        return repository.findById(id).orElse(null);
     }
 
-    public Solicitacao save(Solicitacao solicitacao) {
-        return solicitacaoRepository.save(solicitacao);
+    public Solicitacao salvar(Solicitacao paciente) {
+        return repository.save(paciente);
     }
 
-    public void deleteById(Long id) {
-        solicitacaoRepository.deleteById(id);
+    public Solicitacao salvar(Long id, Solicitacao paciente) {
+        paciente.setId(id);
+        return repository.save(paciente);
+    }
+
+    public void remover(Long id) {
+        repository.deleteById(id);
     }
 }

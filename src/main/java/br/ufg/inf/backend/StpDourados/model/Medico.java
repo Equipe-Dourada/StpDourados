@@ -1,36 +1,32 @@
 package br.ufg.inf.backend.StpDourados.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.Data;
 
-@lombok.Getter
-@lombok.Setter
+@Data
 @Entity
 public class Medico {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(length = 10, nullable = false, unique = true)
     private String crm;
+
+    @Column(nullable = false, length = 100)
     private String nome;
+
+    @Column(nullable = false, length = 20)
     private String telefone;
-    @ManyToOne
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "unidade_hospitalar_id", nullable = false)
     private UnidadeHospitalar unidadeHospitalar;
-    private String papel;
-    @ManyToOne
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Papel papel;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "especialidade_id", nullable = false)
     private Especialidade especialidade;
-
-    public Medico() {}
-
-    public Medico(String crm, String nome, String telefone, UnidadeHospitalar unidadeHospitalar, String papel, Especialidade especialidade) {
-        this.crm = crm;
-        this.nome = nome;
-        this.telefone = telefone;
-        this.unidadeHospitalar = unidadeHospitalar;
-        this.papel = papel;
-        this.especialidade = especialidade;
-    }
 
 }

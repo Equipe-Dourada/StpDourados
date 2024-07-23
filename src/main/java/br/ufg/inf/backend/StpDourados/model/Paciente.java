@@ -1,21 +1,35 @@
 package br.ufg.inf.backend.StpDourados.model;
 
+import jakarta.persistence.*;
+import lombok.Data;
 
-import jakarta.persistence.Entity;
-
-@lombok.Getter
-@lombok.Setter
+@Data
 @Entity
 public class Paciente {
-    @jakarta.persistence.Id
-    @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private Long id;
-    private String nome;
+
+    @Id
+    @Column(length = 11, nullable = false, unique = true)
     private String cpf;
-    private java.util.Date dataNascimento;
-    @jakarta.persistence.OneToOne(cascade = jakarta.persistence.CascadeType.ALL)
-    private Endereco endereco;
+
+    @Column(length = 100, nullable = false)
+    private String nome;
+
+    @Column(length = 20, nullable = false)
     private String telefone;
+
+    @Column(length = 100, nullable = false)
     private String email;
-    private String contatoEmergencia;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 12, nullable = false)
+    private TipoSanguineo tipoSanguineo;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "prontuario_id")
+    private Prontuario prontuario;
+
 }

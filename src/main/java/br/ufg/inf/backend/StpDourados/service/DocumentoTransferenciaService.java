@@ -1,33 +1,34 @@
 package br.ufg.inf.backend.StpDourados.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import br.ufg.inf.backend.StpDourados.model.DocumentoTransferencia;
 import br.ufg.inf.backend.StpDourados.repository.DocumentoTransferenciaRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
+@AllArgsConstructor
 @Service
 public class DocumentoTransferenciaService {
 
-    @Autowired
-    private DocumentoTransferenciaRepository documentoTransferenciaRepository;
+    private final DocumentoTransferenciaRepository repository;
 
-    public List<DocumentoTransferencia> findAll() {
-        return documentoTransferenciaRepository.findAll();
+    public java.util.List<DocumentoTransferencia> listar() {
+        return repository.findAll();
     }
 
-    public Optional<DocumentoTransferencia> findById(Long id) {
-        return documentoTransferenciaRepository.findById(id);
+    public DocumentoTransferencia obter(Long id) {
+        return repository.findById(id).orElse(null);
     }
 
-    public DocumentoTransferencia save(DocumentoTransferencia documentoTransferencia) {
-        return documentoTransferenciaRepository.save(documentoTransferencia);
+    public DocumentoTransferencia salvar(DocumentoTransferencia documentoTransferencia) {
+        return repository.save(documentoTransferencia);
     }
 
-    public void deleteById(Long id) {
-        documentoTransferenciaRepository.deleteById(id);
+    public DocumentoTransferencia salvar(Long id, DocumentoTransferencia documentoTransferencia) {
+        documentoTransferencia.setId(id);
+        return repository.save(documentoTransferencia);
+    }
+
+    public void remover(Long id) {
+        repository.deleteById(id);
     }
 }

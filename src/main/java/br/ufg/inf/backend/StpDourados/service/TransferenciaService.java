@@ -1,33 +1,34 @@
 package br.ufg.inf.backend.StpDourados.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import br.ufg.inf.backend.StpDourados.model.Transferencia;
 import br.ufg.inf.backend.StpDourados.repository.TransferenciaRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
+@AllArgsConstructor
 @Service
 public class TransferenciaService {
 
-    @Autowired
-    private TransferenciaRepository transferenciaRepository;
+    private final TransferenciaRepository repository;
 
-    public List<Transferencia> findAll() {
-        return transferenciaRepository.findAll();
+    public java.util.List<Transferencia> listar() {
+        return repository.findAll();
     }
 
-    public Optional<Transferencia> findById(Long id) {
-        return transferenciaRepository.findById(id);
+    public Transferencia obter(Long id) {
+        return repository.findById(id).orElse(null);
     }
 
-    public Transferencia save(Transferencia transferencia) {
-        return transferenciaRepository.save(transferencia);
+    public Transferencia salvar(Transferencia transferencia) {
+        return repository.save(transferencia);
     }
 
-    public void deleteById(Long id) {
-        transferenciaRepository.deleteById(id);
+    public Transferencia salvar(Long id, Transferencia transferencia) {
+        transferencia.setId(id);
+        return repository.save(transferencia);
+    }
+
+    public void remover(Long id) {
+        repository.deleteById(id);
     }
 }
