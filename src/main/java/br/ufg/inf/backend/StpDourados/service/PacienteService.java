@@ -1,9 +1,10 @@
 package br.ufg.inf.backend.StpDourados.service;
 
+import org.springframework.stereotype.Service;
+
 import br.ufg.inf.backend.StpDourados.model.Paciente;
 import br.ufg.inf.backend.StpDourados.repository.PacienteRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service

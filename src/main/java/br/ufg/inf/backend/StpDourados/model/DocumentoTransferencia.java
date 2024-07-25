@@ -1,6 +1,7 @@
 package br.ufg.inf.backend.StpDourados.model;
 
 import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -13,8 +14,7 @@ import lombok.Data;
 @Data
 @Entity
 public class DocumentoTransferencia {
-
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

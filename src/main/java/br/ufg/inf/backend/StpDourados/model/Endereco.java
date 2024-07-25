@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 @lombok.Setter
 @Entity
 public class Endereco {
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cep;
@@ -29,4 +29,5 @@ public class Endereco {
         this.cidade = cidade;
         this.estado = estado;
     }
+    
 }

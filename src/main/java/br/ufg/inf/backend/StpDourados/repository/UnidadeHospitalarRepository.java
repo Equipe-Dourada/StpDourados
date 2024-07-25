@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 import br.ufg.inf.backend.StpDourados.model.UnidadeHospitalar;
 
 @Repository
-public interface UnidadeHospitalarRepository extends JpaRepository<UnidadeHospitalar, Long> {}
+public interface UnidadeHospitalarRepository extends JpaRepository<UnidadeHospitalar, Long> {
+}

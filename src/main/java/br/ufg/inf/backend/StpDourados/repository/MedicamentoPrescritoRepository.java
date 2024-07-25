@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 import br.ufg.inf.backend.StpDourados.model.MedicamentoPrescrito;
 
 @Repository
-public interface MedicamentoPrescritoRepository extends JpaRepository<MedicamentoPrescrito, Long> {}
+public interface MedicamentoPrescritoRepository extends JpaRepository<MedicamentoPrescrito, Long> {
+}

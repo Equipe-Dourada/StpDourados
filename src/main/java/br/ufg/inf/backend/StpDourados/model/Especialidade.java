@@ -9,17 +9,17 @@ import jakarta.persistence.Id;
 @lombok.Setter
 @Entity
 public class Especialidade {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nome;
-    private String descricao;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nome;
+	private String descricao;
 
-    public Especialidade() {}
+	public Especialidade() {
+	}
 
-    public Especialidade(String nome, String descricao) {
-        this.nome = nome;
-        this.descricao = descricao;
-    }
-
+	public Especialidade(String nome, String descricao) {
+		this.nome = nome;
+		this.descricao = descricao;
+	}
 }

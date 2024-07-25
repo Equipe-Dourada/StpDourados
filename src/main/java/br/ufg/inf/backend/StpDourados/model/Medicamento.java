@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 @lombok.Setter
 @Entity
 public class Medicamento {
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
@@ -23,5 +23,4 @@ public class Medicamento {
         this.principioAtivo = principioAtivo;
         this.descricao = descricao;
     }
-
 }

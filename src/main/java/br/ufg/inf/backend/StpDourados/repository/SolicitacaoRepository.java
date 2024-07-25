@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 import br.ufg.inf.backend.StpDourados.model.Solicitacao;
 
 @Repository
-public interface SolicitacaoRepository extends JpaRepository<Solicitacao, Long> {}
+public interface SolicitacaoRepository extends JpaRepository<Solicitacao, Long> {
+}

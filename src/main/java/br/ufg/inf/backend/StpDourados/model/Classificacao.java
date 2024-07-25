@@ -1,7 +1,7 @@
 package br.ufg.inf.backend.StpDourados.model;
 
 public enum Classificacao {
-    PRIMARIA,
+	PRIMARIA,
     SECUNDARIA,
     TERCIARIA
 }

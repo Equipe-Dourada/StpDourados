@@ -1,13 +1,13 @@
 package br.ufg.inf.backend.StpDourados.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.ufg.inf.backend.StpDourados.model.MedicamentoPrescrito;
 import br.ufg.inf.backend.StpDourados.repository.MedicamentoPrescritoRepository;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MedicamentoPrescritoService {
